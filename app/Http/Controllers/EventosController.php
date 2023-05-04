@@ -22,6 +22,7 @@ class EventosController extends Controller
         $evento = new Eventos();
 
         $evento->titulo = $request->titulo;
+        $evento->data = $request->data;
         $evento->cidade = $request->titulo;
         $evento->descricao = $request->descricao;
         $evento->items = $request->items;
@@ -30,7 +31,7 @@ class EventosController extends Controller
         if($request->hasFile("imagem") && $request->file("imagem")->isValid()) {
             $request_imagem = $request->imagem;
             $extension = $request_imagem->extension();
-            $imageName = md5($request_imagem->getClientOriginalName() . strtotime("now") . $extension);
+            $imageName = md5($request_imagem->getClientOriginalName() . strtotime("now")) . $extension;
 
             $request->imagem->move(public_path("img/events"), $imageName);
 
