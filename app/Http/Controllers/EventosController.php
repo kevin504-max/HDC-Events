@@ -9,9 +9,14 @@ use Illuminate\Http\Request;
 class EventosController extends Controller
 {
     public function index() {
-        $eventos = Eventos::all();
+        $search = request("search");
 
-        return view("welcome", ["eventos" => $eventos]);
+        $eventos = ($search)
+            ? Eventos::where([["titulo", "LIKE", "%" . $search . "%"]])->get()
+            : Eventos::all();
+
+
+        return view("welcome", ["eventos" => $eventos, "search" => $search]);
     }
 
     public function create() {
@@ -31,7 +36,7 @@ class EventosController extends Controller
         if($request->hasFile("imagem") && $request->file("imagem")->isValid()) {
             $request_imagem = $request->imagem;
             $extension = $request_imagem->extension();
-            $imageName = md5($request_imagem->getClientOriginalName() . strtotime("now")) . $extension;
+            $imageName = md5($request_imagem->getClientOriginalName() . strtotime("now")) . "." . $extension;
 
             $request->imagem->move(public_path("img/events"), $imageName);
 
