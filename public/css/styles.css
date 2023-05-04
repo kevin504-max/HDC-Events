@@ -42,11 +42,11 @@ header {
 #navbar {
     justify-content: space-between;
     background-color: #FFF;
-    padding: 5px 0;
+    padding: 20px;
 }
 
 #navbar a {
-    font-size: 4px;
+    font-size: 14px;
     color: #757575;
     text-decoration: none;
     transition: 0.5s;
@@ -122,6 +122,20 @@ header {
 .card-participants {
     font-size: 14px;
     color: #757575;
+}
+
+#evento-create-container {
+    padding: 30px;
+}
+
+#evento-create-container label {
+    font-weight: bold;
+}
+
+#evento-create-container input,
+#evento-create-container select,
+#evento-create-container textarea {
+    font-size: 12px;
 }
 
 footer {
