@@ -29,7 +29,7 @@ class EventosController extends Controller
         if($request->hasFile("imagem") && $request->file("imagem")->isValid()) {
             $request_imagem = $request->imagem;
             $extension = $request_imagem->extension();
-            $imageName = md5($request_imagem->getClientOriginalName() . strtotime("now") . "extension");
+            $imageName = md5($request_imagem->getClientOriginalName() . strtotime("now") . $extension);
 
             $request->imagem->move(public_path("img/events"), $imageName);
 
@@ -39,5 +39,11 @@ class EventosController extends Controller
         $evento->save();
 
         return redirect("/")->with("msg", "Evento cadastrado com sucesso!");
+    }
+
+    public function show($id) {
+        $evento = Eventos::findOrFail($id);
+
+        return view("eventos.show", ["evento" => $evento]);
     }
 }
