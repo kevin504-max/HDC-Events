@@ -3,6 +3,9 @@
 @section("title", "HDC Events")
 
 @section("content")
-    <h1>Home Page</h1>
-    <img src="{{ asset('img/banner.jpg') }}" alt="Banner">
+@if($eventos->count() > 0)
+    @foreach ($eventos as $evento)
+        <p>{{ $evento->titulo . "--" . $evento->descricao }}</p>
+    @endforeach
+@endif
 @endsection

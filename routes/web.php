@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\EventoController;
+use App\Http\Controllers\EventosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,19 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [EventoController::class, "index"]);
-Route::get("eventos/create", [EventoController::class, "create"]);
+Route::get('/', [EventosController::class, "index"]);
+Route::get("eventos/create", [EventosController::class, "create"]);
 
 Route::get("/contato", function () {
     return view("contato");
-});
-
-Route::get("/produto/{id?}", function ($id = null) {
-    $busca = request("search");
-
-    return view("produto", ["id" => $id]);
-});
-
-Route::get("/produtos/{id?}", function ($id = null) {
-    return view("produtos", ["id" => $id]);
 });
