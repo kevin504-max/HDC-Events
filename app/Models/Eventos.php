@@ -12,4 +12,8 @@ class Eventos extends Model
     protected $casts = ["items" => "array"];
 
     protected $dates = ["data"];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }
