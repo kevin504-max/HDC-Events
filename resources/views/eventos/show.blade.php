@@ -1,4 +1,4 @@
-@extends("layouts.app")
+@extends("layouts.main")
 
 @section("title", $evento->titulo)
 
@@ -12,7 +12,7 @@
             <h1>{{ $evento->titulo }}</h1>
             <p class="evento-cidade"><ion-icon name="location-outline"></ion-icon> {{ $evento->cidade }}</p>
             <p class="evento-participantes"><ion-icon name="people-outline"></ion-icon> X Participantes</p>
-            <p class="evento-owner"><ion-icon name="star-outline"></ion-icon> Dono do evento</p>
+            <p class="evento-owner"><ion-icon name="star-outline"></ion-icon> {{ $evento_dono["name"] }}</p>
             <a href="#" class="btn btn-primary" id="event-submit">Confirmar Presença</a>
             <h3>O evento conta com:</h3>
             <ul id="items-list">
