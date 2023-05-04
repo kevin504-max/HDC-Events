@@ -25,6 +25,17 @@ class EventosController extends Controller
         $evento->cidade = $request->titulo;
         $evento->descricao = $request->descricao;
         $evento->privado = $request->privado;
+
+        if($request->hasFile("imagem") && $request->file("imagem")->isValid()) {
+            $request_imagem = $request->imagem;
+            $extension = $request_imagem->extension();
+            $imageName = md5($request_imagem->getClientOriginalName() . strtotime("now") . "extension");
+
+            $request->imagem->move(public_path("img/events"), $imageName);
+
+            $evento->imagem = $imageName;
+        }
+
         $evento->save();
 
         return redirect("/")->with("msg", "Evento cadastrado com sucesso!");

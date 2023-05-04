@@ -16,7 +16,7 @@
         @if($eventos->count() > 0)
             @foreach ($eventos as $evento)
                 <div class="card cool-md-3">
-                    <img src="{{ asset('img/event_placeholder.jpg') }}" alt="{{ $evento->titulo }}">
+                    <img src="{{ asset('img/events/') . $evento->imagem }}" alt="{{ $evento->titulo }}">
                     <div class="card-body">
                         <p class="card-date">03/05/2023</p>
                         <h5 class="card-title">{{ $evento->titulo }}</h5>
