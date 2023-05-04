@@ -58,4 +58,13 @@ class EventosController extends Controller
 
         return view("eventos.show", ["evento" => $evento, "evento_dono" => $evento_dono]);
     }
+
+    public function dashboard() {
+        $user = auth()->user();
+        dd($user);
+        $eventos = $user->eventos;
+
+
+        return view("eventos.dashboard", ["eventos" => $eventos]);
+    }
 }
