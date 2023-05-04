@@ -35,18 +35,28 @@ header {
     border-color: #C28008;
 }
 
+.msg {
+    background-color: #D4EDDA;
+    color: #155724;
+    border: 1px solid #C3E6CB;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
+}
+
 #navbar img {
-    width: 40px;
+    width: 50px;
 }
 
 #navbar {
     justify-content: space-between;
     background-color: #FFF;
-    padding: 20px;
+    padding: 18px;
 }
 
 #navbar a {
-    font-size: 14px;
+    font-size: 18px;
     color: #757575;
     text-decoration: none;
     transition: 0.5s;
